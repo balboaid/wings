@@ -1,65 +1,57 @@
-import Image from "next/image";
+import Card from "./components/Card";
+import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="flex min-h-screen bg-[#F5F7FA]">
+      <Sidebar />
+
+      <section className="flex-1 px-12 py-10 overflow-y-auto">
+        <Header />
+
+        <div className="grid grid-cols-3 gap-6 mt-10">
+          <Card className="col-span-2">
+            <h3 className="title-red font-semibold mb-3">Daily Goal</h3>
+            <div className="w-full bg-gray-200 h-3 rounded-full">
+              <div
+                className="h-3 bg-green-500 rounded-full"
+                style={{ width: "100%" }}
+              />
+            </div>
+            <p className="mt-2 text-sm text-gray-600">20 / 20 XP</p>
+          </Card>
+
+          <Card>
+            <h3 className="title-red font-semibold mb-3">Today's Streak</h3>
+            <p className="text-3xl font-bold text-orange-500">🔥 12</p>
+          </Card>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        <Card className="mt-10">
+          <h3 className="title-red font-semibold mb-4 text-lg">Continue Learning</h3>
+
+          <div className="p-5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl text-white">
+            <p className="text-sm opacity-90">Unit 3</p>
+            <h4 className="text-xl font-semibold">Business Meetings</h4>
+            <p className="text-sm opacity-90 mt-1">Lesson 2 of 6</p>
+
+            <div className="w-full bg-white/40 h-2 rounded-full mt-4">
+              <div
+                className="h-2 bg-white rounded-full"
+                style={{ width: "60%" }}
+              />
+            </div>
+
+            <Link href="/lesson">
+              <button className="mt-4 bg-white text-indigo-600 font-semibold px-4 py-2 rounded-lg">
+                Continue
+              </button>
+            </Link>
+          </div>
+        </Card>
+      </section>
+    </main>
   );
 }

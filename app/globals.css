@@ -24,3 +24,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  .title-red {
+    @apply text-red-700 font-bold tracking-tight;
+  }
+}
