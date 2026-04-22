@@ -6,6 +6,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="flex min-h-screen bg-[#F5F7FA]">
+      <h1>VERSION 2 - TEST LIVE</h1>;
       <Sidebar />
 
       <section className="flex-1 px-12 py-10 overflow-y-auto">
